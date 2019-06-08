@@ -20,8 +20,13 @@ class App extends Component {
           return result.json();
         })
         .then(r => {
+          console.log(r[0].City);
           city = r[0].City;
           this.setState({ theText: city });
+        })
+        .catch(() => {
+          console.log("error");
+          this.setState({ theText: "No Such City" });
         });
     }
     return;
